@@ -1,0 +1,14 @@
+---
+- name: Append new tags for a server
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: append tags for my_awesome_server in the test environment cloud without deleting the existing tags
+      otc_ecs_tag:
+        name: my_awesome_server
+        cloud: "test"
+        tags:
+          Environment: "dev"
+          Department: "0123"
+          POPOPO: "SomeOneEvenMoreImportant"
+        state: present

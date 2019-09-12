@@ -1,0 +1,15 @@
+---
+- name: Create new tags for a server
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: create tags for my_awesome_server and delete the existing ones
+      otc_ecs_tag:
+        name: my_awesome_server
+        cloud: "dev"
+        tags:
+          Environment: "dev"
+          Department: "0123"
+          PO: "SomeOneVeryImportant"
+        delete_existing_tags: True
+        state: present

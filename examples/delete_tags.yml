@@ -1,0 +1,12 @@
+---
+- name: Delete certain tags for a server
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: delete "POPOPO" tags from my_awesome_server
+      otc_ecs_tag:
+        name: my_awesome_server
+        cloud: "dev"
+        tags:
+          POPOPO: "SomeOneEvenMoreImportant"
+        state: absent
