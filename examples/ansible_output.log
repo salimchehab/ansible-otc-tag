@@ -1,0 +1,259 @@
+|  Using /Users/salimchehab/PycharmProjects/ansible-otc-tag/examples/ansible.cfg as config file
+|   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+|   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit
+localhost does not match 'all'
+
+|  PLAY [Create new tags for a server] *****************************************************************
+|  TASK [create tags for my_awesome_server and delete the existing ones] *******************************
+|  fatal: [localhost]: FAILED! => {
+    "Response": "success",
+    "Tags_before": [],
+    "changed": false
+}
+
+MSG:
+
+my_awesome_server does not have any tags. Cannot delete Tags! (state might be set to absent or delete_existing_tags to true).
+
+|  PLAY RECAP ******************************************************************************************
+|  localhost                  : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+|   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+|   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit
+localhost does not match 'all'
+
+|  PLAY [Append new tags for a server] *****************************************************************
+|  TASK [append tags for my_awesome_server in the test environment cloud without deleting the existing tags] ***
+|   [ERROR]: User interrupted execution
+
+|  Using /Users/salimchehab/PycharmProjects/ansible-otc-tag/examples/ansible.cfg as config file
+|   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+|   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit
+localhost does not match 'all'
+
+|  PLAY [Append new tags for a server] *****************************************************************
+|  TASK [append tags for my_awesome_server in the test environment cloud without deleting the existing tags] ***
+|  changed: [localhost] => {
+    "Response": "success",
+    "Tags_after": [
+        {
+            "key": "Environment",
+            "value": "dev"
+        },
+        {
+            "key": "Department",
+            "value": "0123"
+        },
+        {
+            "key": "POPOPO",
+            "value": "SomeOneEvenMoreImportant"
+        }
+    ],
+    "Tags_before": [],
+    "changed": true
+}
+
+MSG:
+
+Successfully added new tags.
+
+|  PLAY RECAP ******************************************************************************************
+|  localhost                  : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+|  Using /Users/salimchehab/PycharmProjects/ansible-otc-tag/examples/ansible.cfg as config file
+|   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+|   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit
+localhost does not match 'all'
+
+|  PLAY [Create new tags for a server] *****************************************************************
+|  TASK [create tags for my_awesome_server and delete the existing ones] *******************************
+|  changed: [localhost] => {
+    "Response": "success",
+    "Tags_after": [
+        {
+            "key": "Environment",
+            "value": "dev"
+        },
+        {
+            "key": "Department",
+            "value": "0123"
+        },
+        {
+            "key": "PO",
+            "value": "SomeOneVeryImportant"
+        }
+    ],
+    "Tags_before": [
+        {
+            "key": "Environment",
+            "value": "dev"
+        },
+        {
+            "key": "Department",
+            "value": "0123"
+        },
+        {
+            "key": "POPOPO",
+            "value": "SomeOneEvenMoreImportant"
+        }
+    ],
+    "changed": true
+}
+
+MSG:
+
+Successfully added new tags.
+
+|  PLAY RECAP ******************************************************************************************
+|  localhost                  : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+|  Using /Users/salimchehab/PycharmProjects/ansible-otc-tag/examples/ansible.cfg as config file
+|   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+|   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit
+localhost does not match 'all'
+
+|  PLAY [Delete certain tags for a server] *************************************************************
+|  TASK [delete "POPOPO" tags from my_awesome_server] **************************************************
+|  ok: [localhost] => {
+    "Response": "success",
+    "Tags_after": [
+        {
+            "key": "Environment",
+            "value": "dev"
+        },
+        {
+            "key": "Department",
+            "value": "0123"
+        },
+        {
+            "key": "PO",
+            "value": "SomeOneVeryImportant"
+        }
+    ],
+    "Tags_before": [
+        {
+            "key": "Environment",
+            "value": "dev"
+        },
+        {
+            "key": "Department",
+            "value": "0123"
+        },
+        {
+            "key": "PO",
+            "value": "SomeOneVeryImportant"
+        }
+    ],
+    "changed": false
+}
+
+MSG:
+
+Successfully deleted existing tags.
+
+|  PLAY RECAP ******************************************************************************************
+|  localhost                  : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+|  Using /Users/salimchehab/PycharmProjects/ansible-otc-tag/examples/ansible.cfg as config file
+|   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+|   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit
+localhost does not match 'all'
+
+|  PLAY [Append new tags for a server] *****************************************************************
+|  TASK [append tags for my_awesome_server in the test environment cloud without deleting the existing tags] ***
+|  changed: [localhost] => {
+    "Response": "success",
+    "Tags_after": [
+        {
+            "key": "Environment",
+            "value": "dev"
+        },
+        {
+            "key": "Department",
+            "value": "0123"
+        },
+        {
+            "key": "PO",
+            "value": "SomeOneVeryImportant"
+        },
+        {
+            "key": "POPOPO",
+            "value": "SomeOneEvenMoreImportant"
+        }
+    ],
+    "Tags_before": [
+        {
+            "key": "Environment",
+            "value": "dev"
+        },
+        {
+            "key": "Department",
+            "value": "0123"
+        },
+        {
+            "key": "PO",
+            "value": "SomeOneVeryImportant"
+        }
+    ],
+    "changed": true
+}
+
+MSG:
+
+Successfully added new tags.
+
+|  PLAY RECAP ******************************************************************************************
+|  localhost                  : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+|  Using /Users/salimchehab/PycharmProjects/ansible-otc-tag/examples/ansible.cfg as config file
+|   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+|   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit
+localhost does not match 'all'
+
+|  PLAY [Delete certain tags for a server] *************************************************************
+|  TASK [delete "POPOPO" tags from my_awesome_server] **************************************************
+|  changed: [localhost] => {
+    "Response": "success",
+    "Tags_after": [
+        {
+            "key": "Environment",
+            "value": "dev"
+        },
+        {
+            "key": "Department",
+            "value": "0123"
+        },
+        {
+            "key": "PO",
+            "value": "SomeOneVeryImportant"
+        }
+    ],
+    "Tags_before": [
+        {
+            "key": "Environment",
+            "value": "dev"
+        },
+        {
+            "key": "Department",
+            "value": "0123"
+        },
+        {
+            "key": "PO",
+            "value": "SomeOneVeryImportant"
+        },
+        {
+            "key": "POPOPO",
+            "value": "SomeOneEvenMoreImportant"
+        }
+    ],
+    "changed": true
+}
+
+MSG:
+
+Successfully deleted existing tags.
+
+|  PLAY RECAP ******************************************************************************************
+|  localhost                  : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
