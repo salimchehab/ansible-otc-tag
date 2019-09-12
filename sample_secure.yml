@@ -1,0 +1,7 @@
+# ~/.config/openstack/secure.yml
+clouds:
+  # dev env
+  dev:
+    auth:
+      username: <<username>>
+      password: <<passowrd>>

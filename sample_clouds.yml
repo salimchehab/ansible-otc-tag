@@ -1,0 +1,11 @@
+# ~/.config/openstack/clouds.yml
+clouds:
+  # dev env
+  dev:
+    private: true
+    region_name: eu-de
+    auth:
+      project_name: eu-de
+      project_id: <<id..2b0aa..>>
+      domain_name: <<OTC-EU-DE-00000...>>
+      auth_url: https://iam.eu-de.otc.t-systems.com:443/v3/
