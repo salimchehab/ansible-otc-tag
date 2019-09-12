@@ -1,3 +1,5 @@
 ansible>=2.6.0
+keystoneauth1>=3.17.1
 openstacksdk>=0.35.0
+python-openstackclient>=3.19.0
 requests>=2.20.1
