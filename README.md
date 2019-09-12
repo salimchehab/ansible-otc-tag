@@ -2,9 +2,70 @@
 
 The OTC Tag Management Service API will be used for tagging the servers (ECS).
 
-## Examples
+Please make sure you have Python >= `3.5`. This was tested with Python `3.7`. 
 
-TODO
+# OpenStack and OTC Authentication
+
+In order to accomplish the API requests, we need the following parameters in the `auth` section:
+
+- username
+- password
+- project_id
+- domain_name
+
+There are multiple ways to authenticate and create a [connection in openstack](https://docs.openstack.org/openstacksdk/latest/user/connection.html).
+This was tested with the clouds.yml and secure.yml files. 
+There are examples here: [cloud.yml](sample_clouds.yml) and [secure.yml](secure.yml). 
+
+## Example Playbook Tasks
+
+Create new tags and delete the existing tags:
+
+    - name: create tags for my_awesome_server and delete the existing ones
+      otc_ecs_tag:
+        name: my_awesome_server
+        cloud: "dev"
+        tags:
+          Environment: "dev"
+          Department: "0123"
+          PO: "SomeOneVeryImportant"
+        delete_existing_tags: True
+        state: present
+
+Append tags and do not delete the existing tags:
+
+    - name: append tags for my_awesome_server in the test environment cloud without deleting the existing tags
+      otc_ecs_tag:
+        name: my_awesome_server
+        cloud: "test"
+        tags:
+          Environment: "dev"
+          Department: "0123"
+          POPOPO: "SomeOneEvenMoreImportant"
+        state: present
+
+Delete certain tags:
+
+    - name: delete "POPOPO" tags from my_awesome_server
+      otc_ecs_tag:
+        name: my_awesome_server
+        cloud: "dev"
+        tags:
+          POPOPO: "SomeOneEvenMoreImportant"
+        state: absent
+
+The exact log output can be found in the examples folder [here](examples/ansible_output.log).
+
+## Decision Table
+
+Here is a summary on the different parameters and the outcome:
+
+| state   | delete_existing_tags | Outcome                                              |
+|---------|----------------------|----------------------------------------------------- |
+| present | True                 |  delete all existing tags / add the user-given tags  |
+| present | False                |  no tags will be deleted / add the user-given tags   |
+| absent  | True                 |  delete all existing tags / no tags will be added    |
+| absent  | False                |  delete only user-given tags / no tags will be added |
 
 ## How it Works
 
