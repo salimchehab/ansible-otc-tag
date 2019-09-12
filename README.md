@@ -4,7 +4,7 @@ The OTC Tag Management Service API will be used for tagging the servers (ECS).
 
 Please make sure you have Python >= `3.5`. This was tested with Python `3.7`. 
 
-# OpenStack and OTC Authentication
+## OpenStack and OTC Authentication
 
 In order to accomplish the API requests, we need the following parameters in the `auth` section:
 
@@ -55,6 +55,8 @@ Delete certain tags:
         state: absent
 
 The exact log output can be found in the examples folder [here](examples/ansible_output.log).
+
+The playbooks can be run from inside the example directory: `ansible-playbook delete_tags.yml -v`
 
 ## Decision Table
 
